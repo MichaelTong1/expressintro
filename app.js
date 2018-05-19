@@ -3,6 +3,12 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var expressValidator = require('express-validator');
 var app = express();
+var randomPuppy = require('random-puppy');
+var doggo = randomPuppy();
+
+
+
+
 
 var logger = function(req, res, next) {
 	console.log('Logging...');
@@ -20,8 +26,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false})); 
 
 // Set Static Path
-app.use(express.static(path.join(__dirname, 'public')));
-
+var publicDir = require('path').join(__dirname,'public');
+app.use(express.static(publicDir));
 
 app.get('/', function(req, res) {
 	res.render('index', {
@@ -33,11 +39,13 @@ app.get('/', function(req, res) {
 app.post('/result', function(req,res) {
 
 	if ((req.body.Result) === 'Yes') {
+
 		console.log('Hey nice');
 			res.render('good', {
-		title: 'Hey nice!'
+		title: 'Hey nice! Here\'s Scruffy :) Click her for more dogs.',
+
 	});
-	} else {
+	 }else {
 		console.log('oNo');
 			res.render('bad', {
 		title: 'Ohno!'
@@ -47,8 +55,15 @@ app.post('/result', function(req,res) {
 
 });
 
-app.get('/result', function(req,res){ 
-
+app.get('/nextdoggo', function(req,res) {
+		randomPuppy()
+	.then(url => {
+			console.log('onto next doggo');
+			res.render('doggopage', {
+		title: 'Glad you like dogs! Keep clicking for more!',
+		url: url
+	}) 
+	});
 
 });
 
@@ -60,5 +75,6 @@ app.get('/result', function(req,res){
 app.listen(3000, function(){
 	console.log('Server started on port 3000...');
 })
+
 
 
