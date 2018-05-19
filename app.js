@@ -56,7 +56,7 @@ app.post('/result', function(req,res) {
 });
 
 app.get('/nextdoggo', function(req,res) {
-		randomPuppy()
+		randomPuppy("fluffydogs")
 	.then(url => {
 			console.log('onto next doggo');
 			res.render('doggopage', {
