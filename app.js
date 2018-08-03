@@ -42,7 +42,7 @@ app.post('/result', function(req,res) {
 
 		console.log('Hey nice');
 			res.render('good', {
-		title: 'Hey nice! Here\'s Scruffy :) Click her for more dogs.',
+		title: 'Hey nice! Me too! What kind of dogs are you looking for?',
 
 	});
 	 }else {
@@ -51,9 +51,53 @@ app.post('/result', function(req,res) {
 		title: 'Ohno!'
 	});
 	}
-	
-
 });
+	
+app.post('/choose', function(req,res) {
+	if ((req.body.Choose) === 'Fluffy') {
+		randomPuppy("fluffydogs")
+	.then(url => {
+		console.log('onto next doggo');
+		console.log('fluffy');
+		res.render('fluffy',{
+			title: 'Here are tons of fluffy dogs! Keep clicking for more!',
+			url: url,
+		})
+		});
+	}else if ((req.body.Choose) === 'Tiny') {
+		randomPuppy("tinydogs")
+	.then(url => {
+		console.log('onto next doggo');
+		console.log('tiny');
+		res.render('tiny', {
+			title: 'Here are tons of tiny dogs! Keep clicking for more!',
+			url: url
+		})
+		});
+	}else if ((req.body.Choose) === 'Smile') {
+		randomPuppy("puppysmiles")
+	.then(url => {
+		console.log('onto next doggo');
+		res.render('smile', {
+			title: 'Here are tons of dogs smiling! Keep clicking for more!',
+			url: url
+		})
+		});
+	}else if ((req.body.Choose) === 'Driving') {
+		randomPuppy("dogsdrivingcars")
+	.then(url => {
+		console.log('onto next doggo');
+		res.render('driving', {
+			title: 'Here are tons of dogs driving cars! Keep clicking for more!',
+			url: url
+		})
+		});
+	}else {
+		console.log('uhhbad'); 
+	
+	}
+});
+
 
 app.get('/nextdoggo', function(req,res) {
 		randomPuppy("fluffydogs")
@@ -67,8 +111,54 @@ app.get('/nextdoggo', function(req,res) {
 
 });
 
+app.get('/nextfluffydoggo', function(req,res) {
+		randomPuppy("fluffydogs")
+	.then(url => {
+			console.log('onto next doggo');
+			res.render('fluffy', {
+		title: 'Here are tons of fluffy dogs! Keep clicking for more!',
+		url: url
+	}) 
+	});
+
+});
+
+app.get('/nexttinydoggo', function(req,res) {
+		randomPuppy("tinydogs")
+	.then(url => {
+			console.log('onto next doggo');
+			res.render('tiny', {
+		title: 'Here are tons of tiny dogs! Keep clicking for more!',
+		url: url
+	}) 
+	});
+
+});
+
+app.get('/nextsmiledoggo', function(req,res) {
+		randomPuppy("puppysmiles")
+	.then(url => {
+			console.log('onto next doggo');
+			res.render('smile', {
+		title: 'Here are tons of dogs smiling! Keep clicking for more!',
+		url: url
+	}) 
+	});
+
+});
 
 
+app.get('/nextdrivingdoggo', function(req,res) {
+		randomPuppy("dogsdrivingcars")
+	.then(url => {
+			console.log('onto next doggo');
+			res.render('driving', {
+		title: 'Here are tons of dogs driving cars! Keep clicking for more!',
+		url: url
+	}) 
+	});
+
+});
 
 
 

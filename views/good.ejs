@@ -1,8 +1,17 @@
 <% include partials/header %>
-
+<center>
 		<h1><%= title %></h1> 
-		<a href="/nextdoggo" >
-			<img src="/images/doggo.jpg" alt="mydoggo"  style="width:400px; height:fit;">
-			</a>
+	<form method="POST" action ="/choose" >
+		<select class = "Choose" name = "Choose" id = "Choose">
+			<option value = "Fluffy">Fluffy Dogs</option>
+			<option value = "Tiny">Tiny Dogs</option>
+			<option value = "Smile">Dogs that are smiling</option>
+			<option value = "Driving">Dogs that are driving cars</option>
+		</select>
+		<input type="submit" value = "Submit">
+	</form>
+</center>
+
+
 
 <% include partials/footer %>
