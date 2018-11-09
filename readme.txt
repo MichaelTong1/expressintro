@@ -6,6 +6,7 @@ If yes, you will get to choose from a list of categories!
 
 Created an instance via AWS: 
 
-http://ec2-18-191-63-57.us-east-2.compute.amazonaws.com:3000
+Last edited on November 9th, 2018:
+http://ec2-18-219-232-186.us-east-2.compute.amazonaws.com:3000/
 
 Created on May 17th, 2018.
