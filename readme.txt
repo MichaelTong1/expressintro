@@ -10,3 +10,12 @@ Last edited on November 9th, 2018:
 http://ec2-18-219-232-186.us-east-2.compute.amazonaws.com:3000/
 
 Created on May 17th, 2018.
+
+
+
+To start, run the command:
+nodemon app.js
+
+If the server is already running on the port, use this command:
+fuser -k 3000/tcp
+

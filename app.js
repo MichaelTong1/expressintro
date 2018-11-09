@@ -5,13 +5,13 @@ var expressValidator = require('express-validator');
 var app = express();
 var randomPuppy = require('random-puppy');
 var doggo = randomPuppy();
-
+var count = 0;
+var niceCount = 0; 
 
 
 
 
 var logger = function(req, res, next) {
-	console.log('Logging...');
 	next();
 }
 
@@ -30,6 +30,8 @@ var publicDir = require('path').join(__dirname,'public');
 app.use(express.static(publicDir));
 
 app.get('/', function(req, res) {
+	count++;
+	console.log(count + ' People visited.'); 
 	res.render('index', {
 		title: 'Do you like dogs?'
 
@@ -39,8 +41,8 @@ app.get('/', function(req, res) {
 app.post('/result', function(req,res) {
 
 	if ((req.body.Result) === 'Yes') {
-
-		console.log('Hey nice');
+		niceCount++;
+		console.log(niceCount + 'Hey nice');
 			res.render('good', {
 		title: 'Hey nice! Me too! What kind of dogs are you looking for?',
 
@@ -162,7 +164,7 @@ app.get('/nextdrivingdoggo', function(req,res) {
 
 
 
-app.listen(80, function(){
+app.listen(3000, function(){
 	console.log('Server started on port 80...');
 })
 
