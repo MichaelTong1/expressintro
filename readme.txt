@@ -16,9 +16,10 @@ To start, run the command:
 nodemon app.js
 
 If the server is already running on the port, use this command:
-fuser -k 3000/tcp
+fuser -k 8080/tcp
 
 To run indefinitely, run the command:
 pm2 start app.js
 
-
+More information on nginx: 
+https://medium.com/@utkarsh_verma/configure-nginx-as-a-web-server-and-reverse-proxy-for-nodejs-application-on-aws-ubuntu-16-04-server-872922e21d38
