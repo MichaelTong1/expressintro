@@ -30,23 +30,26 @@ var publicDir = require('path').join(__dirname,'public');
 app.use(express.static(publicDir));
 
 app.get('/', function(req, res) {
+	res.render('index2', {
+		title: 'Main Page'
+
+	});
+});
+
+app.get('/dogwebapp',function(req,res) {
 	res.render('index', {
 		title: 'Do you like dogs?'
-
 	});
 });
 
 app.post('/result', function(req,res) {
 
 	if ((req.body.Result) === 'Yes') {
-
-		console.log('Hey nice');
 			res.render('good', {
 		title: 'Hey nice! Me too! What kind of dogs are you looking for?',
 
 	});
 	 }else {
-		console.log('oNo');
 			res.render('bad', {
 		title: 'Ohno!'
 	});
@@ -57,8 +60,6 @@ app.post('/choose', function(req,res) {
 	if ((req.body.Choose) === 'Fluffy') {
 		randomPuppy("fluffydogs")
 	.then(url => {
-		console.log('onto next doggo');
-		console.log('fluffy');
 		res.render('fluffy',{
 			title: 'Here are tons of fluffy dogs! Keep clicking for more!',
 			url: url,
