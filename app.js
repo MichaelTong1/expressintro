@@ -36,11 +36,26 @@ app.get('/', function(req, res) {
 	});
 });
 
+// Clicking on My Simple Web App redirects you to dogwebapp
+
 app.get('/dogwebapp',function(req,res) {
 	res.render('index', {
 		title: 'Do you like dogs?'
 	});
 });
+
+app.get('/aboutme',function(req,res) {
+	res.render('aboutme');
+});
+
+app.get('/contactme',function(req,res) {
+	res.render('contactme');
+});
+
+app.get('/#',function(req,res) {
+	res.render('index2');
+});
+
 
 app.post('/result', function(req,res) {
 
@@ -94,7 +109,6 @@ app.post('/choose', function(req,res) {
 		})
 		});
 	}else {
-		console.log('uhhbad'); 
 	
 	}
 });
@@ -160,9 +174,6 @@ app.get('/nextdrivingdoggo', function(req,res) {
 	});
 
 });
-
-
-
 
 app.listen(8080, function() {
 	console.log("Server started...");
