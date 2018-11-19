@@ -31,7 +31,7 @@ app.use(express.static(publicDir));
 
 app.get('/', function(req, res) {
 	res.render('index2', {
-		title: 'Main Page'
+		title: 'Home Page'
 
 	});
 });
@@ -45,17 +45,22 @@ app.get('/dogwebapp',function(req,res) {
 });
 
 app.get('/aboutme',function(req,res) {
-	res.render('aboutme');
+	res.render('aboutme', {
+		title: 'About Me'
+	});
 });
 
 app.get('/contactme',function(req,res) {
-	res.render('contactme');
+	res.render('contactme', {
+		title: 'Contact Me'
+	});
 });
 
 app.get('/#',function(req,res) {
-	res.render('index2');
+	res.render('index2', {
+		title: 'Home Page'
+	});
 });
-
 
 app.post('/result', function(req,res) {
 
