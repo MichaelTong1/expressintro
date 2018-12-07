@@ -56,6 +56,12 @@ app.get('/contactme',function(req,res) {
 	});
 });
 
+app.get('/myresume',function(req,res) {
+	res.render('resume', {
+		title: 'My Resume'
+	});
+});
+
 app.get('/#',function(req,res) {
 	res.render('index2', {
 		title: 'Home Page'
