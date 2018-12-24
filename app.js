@@ -30,8 +30,8 @@ var publicDir = require('path').join(__dirname,'public');
 app.use(express.static(publicDir));
 
 app.get('/', function(req, res) {
-	res.render('index2', {
-		title: 'Home Page'
+	res.render('index', {
+		title: 'Do you like dogs?'
 
 	});
 });
